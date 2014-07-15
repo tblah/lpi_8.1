@@ -1,8 +1,8 @@
 COMPILE_OPTS= -g -Wall 
 
 TESTER_OUTPUT_NAME=tester
-TESTER_OUTPUT_BUILD=errExit.o getpwnam.o test.c
-TESTER_OUTPUT_DEPS=bool.h errExit.h getpwnam.h $(TESTER_OUTPUT_BUILD)
+TESTER_OUTPUT_BUILD=getpwnam.o test.c
+TESTER_OUTPUT_DEPS=getpwnam.h $(TESTER_OUTPUT_BUILD)
 
 ERREXIT_BUILD=errExit.c
 ERREXIT_DEPS=$(ERREXIT_BUILD)
@@ -24,9 +24,6 @@ $(TESTER_OUTPUT_NAME): $(TESTER_OUTPUT_DEPS)
 
 getpwnam.o: $(GETPWNAM_DEPS)
 	cc $(COMPILE_OPTS) -c -o $@ $(GETPWNAM_BUILD)
-
-errExit.o: $(ERREXIT_DEPS)
-	cc $(COMPILE_OPTS) -c -o $@ $(ERREXIT_BUILD)
 
 clean:
 	rm $(TESTER_OUTPUT_NAME) *.o
