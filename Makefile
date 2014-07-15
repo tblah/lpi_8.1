@@ -1,4 +1,4 @@
-COMPILE_OPTS= -g -Wall -std=c99
+COMPILE_OPTS= -g -Wall 
 
 TESTER_OUTPUT_NAME=tester
 TESTER_OUTPUT_BUILD=errExit.o getpwnam.o test.c
@@ -23,7 +23,7 @@ $(TESTER_OUTPUT_NAME): $(TESTER_OUTPUT_DEPS)
 	cc $(COMPILE_OPTS) -o $@ $(TESTER_OUTPUT_BUILD)
 
 getpwnam.o: $(GETPWNAM_DEPS)
-	cc $(COMPILE_OPTS) -Wno-implicit-function-declaration -c -o $@ $(GETPWNAM_BUILD)
+	cc $(COMPILE_OPTS) -c -o $@ $(GETPWNAM_BUILD)
 
 errExit.o: $(ERREXIT_DEPS)
 	cc $(COMPILE_OPTS) -c -o $@ $(ERREXIT_BUILD)
